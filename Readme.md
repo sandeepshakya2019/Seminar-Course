@@ -50,7 +50,7 @@ This system collects logs from microservices, streams them through Kafka, consum
 
 ### Frontend
 
--   React.js (Vite)
+-   React.js
 -   Leaflet.js
 -   Axios
 
