@@ -1,37 +1,46 @@
-# Real-Time Systems using Redis & Kafka
+# Real-Time Systems using Redis and Kafka
 
-### **Order Tracking System + Log Aggregation System**
+Order Tracking System and Log Aggregation System  
+Backend and Frontend Implementation
 
-Full Stack (Backend + Frontend)
+**Authors:**
 
-This repository contains two complete real-time systems built using **Kafka**, **Redis**, **Node.js**, **WebSockets**, and **React.js**.
+-   Sandeep Kumar (CS24M112)
+-   Ashant Kumar (CS24M113)
+-   Dharmendra Chauhan (CS24M115)
 
----
+This repository contains two separate real-time systems built using Kafka, Redis, Node.js, WebSockets, and React.js.
 
-# Project Overview
+```
 
-## 1. Real-Time Order Tracking System
+seminar-course/
+│
+├── 1-order-tracking/
+│ ├── backend/
+│ └── frontend/
+│
+└── 2-log-aggregation/
+└── backend/
 
-The Order Tracking System displays **live order movement on a map** using:
-
--   Kafka (order event producer)
--   Redis Pub/Sub (real-time data propagation)
--   Node.js backend (Express + WebSocket)
--   React.js frontend (Leaflet map updates)
-
-## 2. Real-Time Log Aggregation System
-
-A fully functional log streaming pipeline:
-
--   Microservices send logs → Kafka
--   Kafka consumer → Redis
--   Redis publishes → WebSocket dashboard
+```
 
 ---
 
-# Tech Stack
+## Project Overview
 
-### Backend:
+### 1. Real-Time Order Tracking System
+
+This system shows live order movement on a map using Kafka for order event streaming, Redis Pub/Sub for fast propagation, a Node.js backend for API and WebSocket communication, and a React.js frontend with a Leaflet map interface.
+
+### 2. Real-Time Log Aggregation System
+
+This system collects logs from microservices, streams them through Kafka, consumes and publishes them with Redis, and displays them on a WebSocket-powered real-time dashboard.
+
+---
+
+## Technologies Used
+
+### Backend
 
 -   Node.js
 -   Express.js
@@ -39,67 +48,58 @@ A fully functional log streaming pipeline:
 -   Redis (ioredis)
 -   WebSocket (ws)
 
-### Frontend:
+### Frontend
 
 -   React.js (Vite)
--   Leaflet.js (live map)
+-   Leaflet.js
 -   Axios
 
 ---
 
-# Installation Guide
+## Installation Instructions
 
-Clone the project:
+Clone this repository:
 
 ```bash
-git clone https://github.com/sandeepshakya2019/Seminar-Course
+git clone https://github.com/sandeepshakya2019/Seminar-Course.git
 cd seminar-course
 ```
 
-````
-
 ---
 
-# ⚙️ Kafka & Redis Setup
+## Kafka and Redis Setup
 
-## Option 1 — Using Docker (recommended)
+### Option 1: Using Docker (recommended)
 
 ```bash
 docker-compose up -d
 ```
 
-## Option 2 — Manual Installation
+### Option 2: Manual Installation
 
--   Kafka running on `localhost:9092`
--   Redis running on `localhost:6379`
+Make sure the following services are running locally:
+
+-   Kafka on `localhost:9092`
+-   Redis on `localhost:6379`
 
 ---
 
-# 🟦 1. ORDER TRACKING SYSTEM
+# 1. Order Tracking System
 
-## ▶ Backend Setup
+## Backend Setup
 
 ```bash
 cd 1-order-tracking/backend
 npm install
 ```
 
-Create `.env`:
-
-```
-KAFKA_BROKER=localhost:9092
-REDIS_HOST=localhost
-REDIS_PORT=6379
-PORT=5000
-```
-
-Start backend:
+Start the backend:
 
 ```bash
 npm start
 ```
 
-Backend URL:
+Backend runs at:
 
 ```
 http://localhost:5000
@@ -107,7 +107,7 @@ http://localhost:5000
 
 ---
 
-## ▶ Frontend Setup (Order Tracking)
+## Frontend Setup
 
 ```bash
 cd 1-order-tracking/frontend
@@ -115,7 +115,7 @@ npm install
 npm run dev
 ```
 
-Frontend URL:
+Frontend runs at:
 
 ```
 http://localhost:5173
@@ -123,16 +123,16 @@ http://localhost:5173
 
 ---
 
-# 🟥 2. LOG AGGREGATION SYSTEM
+# 2. Log Aggregation System
 
-## ▶ Backend Setup
+## Backend Setup
 
 ```bash
 cd 2-log-aggregation/backend
 npm install
 ```
 
-Create `.env`:
+Create a `.env` file:
 
 ```
 KAFKA_BROKER=localhost:9092
@@ -141,13 +141,13 @@ REDIS_PORT=6379
 PORT=6000
 ```
 
-Start:
+Start the service:
 
 ```bash
 npm start
 ```
 
-Dashboard URL:
+Dashboard available at:
 
 ```
 http://localhost:6000
@@ -155,15 +155,15 @@ http://localhost:6000
 
 ---
 
-# 🧪 Testing Both Systems
+## Testing
 
-## ➤ Simulate Order Events
+### Simulate order events:
 
 ```bash
 node simulate-orders.js
 ```
 
-## ➤ Produce Logs for Log Aggregation
+### Produce log events:
 
 ```bash
 node producer.js
@@ -171,59 +171,35 @@ node producer.js
 
 ---
 
-# 📁 Folder Structure
+## Folder Structure
 
 ```
 seminar-course/
 │
 ├── 1-order-tracking/
-│   ├── backend/         # Express + Kafka + Redis + WS
-│   └── frontend/        # React map UI
+│   ├── backend/         # Kafka + Redis + Express + WebSocket
+│   └── frontend/        # React map interface
 │
 └── 2-log-aggregation/
-    └── backend/         # Kafka → Redis → WebSocket dashboard
+    └── backend/         # Kafka consumer -> Redis publisher -> WebSocket dashboard
 ```
 
 ---
 
-# 🎯 Features
+## Features
 
-## Order Tracking System
+### Order Tracking System
 
-✔ Real-time map updates
-✔ Kafka → Redis pipeline
-✔ React + Leaflet UI
-✔ WebSocket live streaming
+-   Real-time map updates
+-   Kafka to Redis streaming
+-   WebSocket communication
+-   React-based dashboard
 
-## Log Aggregation System
+### Log Aggregation System
 
-✔ Fetch logs in real-time
-✔ Kafka consumer
-✔ Redis publisher
-✔ WebSocket streaming
-
----
-
-# 📜 License
-
-MIT License
+-   Live log monitoring
+-   Kafka consumer implementation
+-   Redis-backed Pub/Sub
+-   WebSocket data streaming
 
 ---
-
-```markdown
----
-
-Just copy the **entire block** and save it as:
-```
-
-README.md
-
-```
-
-Let me know if you want:
-- architecture diagrams
-- badges (build, technologies)
-- separate READMEs for each folder
-- Overleaf slide deck for presentation
-```
-````
