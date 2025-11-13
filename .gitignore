@@ -1,0 +1,46 @@
+# Ignore all node_modules in any folder
+**/node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# Dependency directories
+bower_components/
+
+# Build outputs
+/dist/
+/build/
+/out/
+/coverage/
+/.next/
+/.nuxt/
+/.astro/
+
+/.parcel-cache
+.cache/
+.tmp/
+
+# React specific
+*.env
+.env.*
+.eslintcache
+
+# Editor folders
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Optional: lock files (if you want)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml

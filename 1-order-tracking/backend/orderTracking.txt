@@ -1,0 +1,15 @@
+docker pull redis:latest
+docker run -d --name redis -p 6379:6379 redis
+docker ps
+docker exec -it redis redis-cli
+
+
+docker start redis
+docker stop redis
+docker rm -f redis
+
+
+docker-compose up -d
+
+
+docker exec -it kafka kafka-topics --create --topic order-events --bootstrap-server localhost:9092
